@@ -1,0 +1,125 @@
+{
+  "description": "Convert minor units between currencies. rate = units of the target per 1 unit of the source. Rounds half to even once.",
+  "cases": [
+    {
+      "name": "JPY to PHP",
+      "amount_minor": 10000,
+      "from": "JPY",
+      "to": "PHP",
+      "rate": "0.4",
+      "expected_minor": 400000
+    },
+    {
+      "name": "USD to PHP",
+      "amount_minor": 1000,
+      "from": "USD",
+      "to": "PHP",
+      "rate": "56.5",
+      "expected_minor": 56500
+    },
+    {
+      "name": "PHP to KWD (3 digits)",
+      "amount_minor": 100000,
+      "from": "PHP",
+      "to": "KWD",
+      "rate": "0.0055",
+      "expected_minor": 5500
+    },
+    {
+      "name": "same currency is unchanged",
+      "amount_minor": 12345,
+      "from": "PHP",
+      "to": "PHP",
+      "rate": "1",
+      "expected_minor": 12345
+    },
+    {
+      "name": "same currency ignores the rate",
+      "amount_minor": 12345,
+      "from": "php",
+      "to": "PHP",
+      "rate": "99",
+      "expected_minor": 12345
+    },
+    {
+      "name": "tie 0.5 yen rounds down to 0",
+      "amount_minor": 1,
+      "from": "PHP",
+      "to": "JPY",
+      "rate": "50",
+      "expected_minor": 0
+    },
+    {
+      "name": "tie 1.5 yen rounds up to 2",
+      "amount_minor": 3,
+      "from": "PHP",
+      "to": "JPY",
+      "rate": "50",
+      "expected_minor": 2
+    },
+    {
+      "name": "tie 2.5 yen rounds down to 2",
+      "amount_minor": 5,
+      "from": "PHP",
+      "to": "JPY",
+      "rate": "50",
+      "expected_minor": 2
+    },
+    {
+      "name": "tie 3.5 yen rounds up to 4",
+      "amount_minor": 7,
+      "from": "PHP",
+      "to": "JPY",
+      "rate": "50",
+      "expected_minor": 4
+    },
+    {
+      "name": "56.5 centavos rounds to 56",
+      "amount_minor": 1,
+      "from": "USD",
+      "to": "PHP",
+      "rate": "56.5",
+      "expected_minor": 56
+    },
+    {
+      "name": "169.5 centavos rounds to 170",
+      "amount_minor": 3,
+      "from": "USD",
+      "to": "PHP",
+      "rate": "56.5",
+      "expected_minor": 170
+    },
+    {
+      "name": "8 digit rate",
+      "amount_minor": 12345,
+      "from": "USD",
+      "to": "PHP",
+      "rate": "58.12345678",
+      "expected_minor": 717534
+    },
+    {
+      "name": "unknown currency is rejected",
+      "amount_minor": 1,
+      "from": "XXX",
+      "to": "PHP",
+      "rate": "1",
+      "expected_error": "unsupported_currency"
+    },
+    {
+      "name": "zero rate is rejected",
+      "amount_minor": 100,
+      "from": "USD",
+      "to": "PHP",
+      "rate": "0",
+      "expected_error": "invalid_rate"
+    },
+    {
+      "name": "negative rate is rejected",
+      "amount_minor": 100,
+      "from": "USD",
+      "to": "PHP",
+      "rate": "-1",
+      "expected_error": "invalid_rate"
+    }
+  ]
+}

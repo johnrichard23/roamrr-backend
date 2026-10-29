@@ -1,0 +1,12 @@
+{
+  "name": "roamrr-schema-harness",
+  "private": true,
+  "type": "module",
+  "description": "Runs the backend migrations on in-process Postgres (PGlite) and checks money, RPC, and access rules.",
+  "scripts": {
+    "test": "node run.mjs && node vectors.mjs"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.5.11"
+  }
+}

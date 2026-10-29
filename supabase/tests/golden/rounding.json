@@ -1,0 +1,80 @@
+{
+  "description": "Round to the nearest integer, ties to the even neighbour. Values are decimal strings.",
+  "cases": [
+    {
+      "name": "2.5 goes down to even",
+      "value": "2.5",
+      "expected": "2"
+    },
+    {
+      "name": "3.5 goes up to even",
+      "value": "3.5",
+      "expected": "4"
+    },
+    {
+      "name": "0.5 goes to 0",
+      "value": "0.5",
+      "expected": "0"
+    },
+    {
+      "name": "1.5 goes to 2",
+      "value": "1.5",
+      "expected": "2"
+    },
+    {
+      "name": "-0.5 goes to 0",
+      "value": "-0.5",
+      "expected": "0"
+    },
+    {
+      "name": "-1.5 goes to -2",
+      "value": "-1.5",
+      "expected": "-2"
+    },
+    {
+      "name": "-2.5 goes to -2",
+      "value": "-2.5",
+      "expected": "-2"
+    },
+    {
+      "name": "just under half",
+      "value": "2.4999",
+      "expected": "2"
+    },
+    {
+      "name": "just over half",
+      "value": "2.5001",
+      "expected": "3"
+    },
+    {
+      "name": "zero",
+      "value": "0",
+      "expected": "0"
+    },
+    {
+      "name": "whole number",
+      "value": "100",
+      "expected": "100"
+    },
+    {
+      "name": "1234.5 goes to even 1234",
+      "value": "1234.5",
+      "expected": "1234"
+    },
+    {
+      "name": "1235.5 goes to even 1236",
+      "value": "1235.5",
+      "expected": "1236"
+    },
+    {
+      "name": "0.49999999",
+      "value": "0.49999999",
+      "expected": "0"
+    },
+    {
+      "name": "0.50000001",
+      "value": "0.50000001",
+      "expected": "1"
+    }
+  ]
+}
